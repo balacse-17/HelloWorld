@@ -3,31 +3,23 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                echo 'Checking out source code...'
-                checkout scm
-            }
-        }
-
         stage('Build') {
             steps {
-                echo 'Building the Python application...'
-                bat 'python --version'
-                bat 'python hello.py'
+                echo 'Checking Python version...'
+
+                bat '"C:\\Users\\WELCOME\\AppData\\Local\\Programs\\Python\\Python310\\python.exe" --version'
+
+                echo 'Running Python application...'
+
+                bat '"C:\\Users\\WELCOME\\AppData\\Local\\Programs\\Python\\Python310\\python.exe" hello.py'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                bat 'python hello.py'
-            }
-        }
 
-        stage('Success') {
-            steps {
-                echo 'Pipeline completed successfully! 🎉'
+                bat '"C:\\Users\\WELCOME\\AppData\\Local\\Programs\\Python\\Python310\\python.exe" hello.py'
             }
         }
     }
